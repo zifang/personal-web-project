@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>首页</title>
+	<link rel="stylesheet" href="css/jquery.fullPage.css">
+	<link rel="stylesheet" href="FlexSlider/flexslider.css" />
+	<link rel="stylesheet" href="mediaelement/build/mediaelementplayer.min.css" />
+	<link rel="stylesheet" href="mediaelement/build/mejs-skins.css" />
+	<link rel="stylesheet" href="css/site.css" />
+</head>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/jquery.easings.min.js"></script>
+<script src="js/jquery.mousewheel.js"></script>
+<script src="FlexSlider/jquery.flexslider-min.js"></script>
+<script src="mediaelement/build/mediaelement-and-player.min.js"></script>
+<script type="text/javascript" src="js/jquery.fullPage.js"></script>
+<script>
+	$(function(){
+
+		//导航下拉菜单
+		$(".menu-li").on("mouseover mouseout",function(){
+			$(this).find(".dropdown-menu").slideToggle();
+		});
+		
+		//轮播插件设置
+        $('#section2 .flexslider,#section7 .flexslider,#section3 .flexslider').flexslider({
+            animation: "slide",
+            controlNav: "thumbnails"
+        });
+
+		//显示隐藏二维码
+		$("#twoCode").on("click",function(e){
+			e.preventDefault();
+			$(".twoCode").toggle();
+		});
+
+		//一次轮番多张图片
+		$('#section4 .flexslider').flexslider({
+		  animation: "slide",
+		  animationLoop: false,
+		  itemWidth: 210,
+		  itemMargin: 5,
+		  minItems: 2,
+		  maxItems: 4
+		});
+
+		//点击弹出店长推荐套餐
+		$("#tuijian").on("click",function(e){
+			e.preventDefault();
+			$(".pup-box1").show();
+		});
+		$("#close-tuijian").on("click",function(e){
+			e.preventDefault();
+			$(".pup-box1").hide();
+		});
+
+		//点击弹出报名窗口
+		$("#baoming").on("click",function(e){
+			e.preventDefault();
+			$(".pup-box2").show();
+		});
+		$("#close-box2").on("click",function(){
+			$(".pup-box2").hide();
+		});
+
+		//fullpage
+		$('#fullpage').fullpage({
+			sectionsColor: ['#000', '#000', '#000', '#000', '#000','#000','#1f1f1f'],
+			anchors: ['', 'secondPage', '3rdPage', '4thpage', '5thPage','6thPage','7thPage','8thPage','lastPage'],
+			menu: '#menu',
+			scrollingSpeed: 1000,
+			resize:false,
+			paddingTop:125,
+			paddingBotteom:95,
+			continuousVertical:false
+		});
+
+
+		//视频播放插件
+		$('video,audio').mediaelementplayer();
+
+		//点击视频，切换视频播放
+		$("#video-list li > a").on("click",function(e){
+			e.preventDefault();
+			var $_this=$(this),
+				$_href=$_this.data("href");
+			$(".middle video,.middle video source").attr("src",$_href);
+		});
+
+	});
+</script>
+<body>
+	<div id="header">
+		<div class="header-top">
+			<div class="box-w clr">
+				<div class="left"><a href=""><img src="images/weixin.jpg" alt="">welcome!<span>www.yxmilan.com</span></a></div>
+				<div class="right">
+					<a href=""><img src="images/people.jpg" alt="">浏览人数<span>285000000</span></a>
+					<a href=""><img src="images/calender.jpg" alt="">今日日期<span>2015.04.30</span></a>
+					<div class="weather">
+						<img src="images/at.jpg" alt="">
+						<span class="add">YIXIN</span>
+						<span class="name">WEATHER</span>
+					</div>
+					<a href="" style="margin-left:10px;"><img src="images/duoyun.jpg" alt="">12°C~25°C</a>
+					<a href=""><img src="images/star.jpg" alt="">收藏本站</a>
+				</div>
+			</div>
+		</div>
+		<div class="header-bottom clr">
+			<div class="box-w">
+				<div class="left"><img src="images/logo.jpg" alt=""></div>
+				<div class="right">
+					<ul class="clr">
+						<li class="clr menu-li">
+							<a href="">BRAND&nbsp;&nbsp;品牌服务中心</a>
+							<div id="dropdown" class="dropdown-menu" style="display:none;">
+								<ul>
+									<li><a href="">米兰尊荣婚纱摄影</a></li>
+									<li><a href="">美目造型</a></li>
+									<li><a href="">米兰时光机</a></li>
+									<li class="last-li"><a href="">米兰云端跟拍</a></li>
+								</ul>
+							</div>
+						</li>
+						<li><a href="">WORKS&nbsp;&nbsp;样本加盟</a></li>
+						<li><a href="">GUEST&nbsp;&nbsp;客照大赏</a></li>
+						<li><a href="">TRAVEL&nbsp;&nbsp;全球旅行战略</a></li>
+						<li class="last"><a href="">BASE&nbsp;&nbsp;独家影城</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<ul id="menu">
+		<li data-menuanchor="firstPage"><a href="#firstPage"></a></li>
+		<li data-menuanchor="secondPage"><a href="#secondPage">快<br/>讯</a></li>
+		<li data-menuanchor="3rdPage"><a href="#3rdPage">样<br>片</a></li>
+		<li data-menuanchor="4thpage"><a href="#4thpage">旅<br>拍</a></li>
+		<li data-menuanchor="5thPage"><a href="#5thPage">客<br>照</a></li>
+		<li data-menuanchor="6thPage"><a href="#6thPage">视<br>频</a></li>
+		<li data-menuanchor="7thPage"><a href="#7thPage">服<br>务</a></li>
+		<li data-menuanchor="8thPage"><a href="#8thPage">新<br>闻</a></li>
+		<li data-menuanchor="lastPage">
+			<a href="#lastPage" id="twoCode" style="margin:10px 0;"><img src="images/twoCoad.jpg" alt=""></a>
+			<img src="images/big2code.jpg" alt="" style="display:none;" class="twoCode">
+		</li>
+	</ul>
+	<div id="fullpage">
+		<div class="content">
+			<div class="section" id="section0">
+				<div class="intro">
+					<div class="inner-box">
+						<div class="box-w">
+							<div class="btn-box">
+								<a href="" class="btn">GET THE LOOK</a>
+							</div>
+							<div class="link-box">
+								<img src="images/link.jpg" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="section" id="section1">
+		    	<div class="intro">
+					<div class="inner-box1 clr">
+						<div class="a-img">
+							<a href=""><img src="images/page2-001.jpg" alt="" class="bo-t bo-r bo-b"></a>
+							<div class="btn-box" style="position:absolute;top:68%;left:45%;">
+								<a href="" class="btn btn-white">GET THE LOOK</a>
+							</div>
+						</div>
+						<div class="a-img">
+							<a class="a-img" href="" style="position:relative;"><img src="images/page2-002.jpg" alt="" class="bo-r bo-t bo-b">
+								<div class="btn-box" style="position:absolute;top:68%;left:10%;">
+									<a href="" class="btn btn-blue">GET THE LOOK</a>
+								</div>
+							</a>
+						</div>
+						<a class="a-img" href=""><img src="images/page2-003.jpg" alt="" class="bo-t bo-b"></a>
+						<a class="a-img" href=""><img src="images/page2-004.jpg" alt="" class="bo-t bo-r"></a>
+						<a class="a-img" href=""><img src="images/page2-005.jpg" alt="" class="bo-t bo-r"></a>
+						<a class="a-img" href=""><img src="images/page2-006.jpg" alt="" class="bo-t bo-r"></a>
+						<a class="a-img" href=""><img src="images/page2-007.jpg" alt="" class="bo-t"></a>
+					</div>
+				</div>
+			</div>
+			<div class="section" id="section2">
+				<div class="intro">
+					<div class="inner-box2" id="main">
+						<div class="slider">
+							<div class="flexslider">
+				  			  <ul class="slides">
+				  			  	<li data-thumb="images/page3-001.jpg">
+		  	 	    	    		<img src="images/page3-001.jpg" alt="">
+			  	 	    		</li>
+			  	 	    		<li data-thumb="images/page3-002.jpg">
+			  	 	    	   		<img src="images/page3-002.jpg" />
+			  	 	    		</li>
+			  	 	    		<li data-thumb="images/page3-003.jpg">
+			  	 	    	   		<img src="images/page3-003.jpg" />
+			  	 	    		</li>
+				  			  </ul>
+				  			</div>
+				  		</div>
+					</div>
+				</div>
+			</div>
+			<div class="section" id="section3">
+				<div class="intro">
+					<div class="inner-box2" id="main">
+						<div class="slider">
+							<div class="flexslider">
+				  			  <ul class="slides">
+				  			  	<li data-thumb="images/page3-001.jpg">
+				 	    	    		<img src="images/page3-001.jpg" alt="">
+			  	 	    		</li>
+			  	 	    		<li data-thumb="images/page3-002.jpg">
+			  	 	    	   		<img src="images/page3-002.jpg" />
+			  	 	    		</li>
+			  	 	    		<li data-thumb="images/page3-003.jpg">
+			  	 	    	   		<img src="images/page3-003.jpg" />
+				  			  		<!-- <p class="flex-caption">This image is wrapped in a link.</p> -->
+			  	 	    		</li>
+				  			  </ul>
+				  			</div>
+			  			</div>
+					</div>
+				</div>
+			</div>
+			<div class="section" id="section4">
+				<div class="intro">
+					<div class="inner-box3">
+						<div class="slider">
+							<div class="box-w">
+								<div class="flexslider carousel">
+				  			  <ul class="slides">
+					             	<li>
+					   	    	    	<img src="images/page5-001.jpg" />
+					   	    		</li>
+					   	    		<li>
+					   	    	   		 <img src="images/page5-002.jpg" />
+					   	    		</li>
+					   	    		<li>
+					   	    	   		 <img src="images/page5-003.jpg" />
+					   	    		</li>
+					   	    		<li>
+					   	    	    	<img src="images/page5-004.jpg" />
+					   	    		</li>
+					                <li>
+					   	    	    	<img src="images/page5-004.jpg" />
+					   	    		</li>
+					   	    		<li>
+					   	    	    	<img src="images/page5-003.jpg" />
+					   	    		</li>
+					           </ul>
+				  			</div>
+				  			 <div class="img-box">
+					          	 <img src="images/text.png" alt="">
+					         </div>
+							</div>
+			  			</div>
+					</div>
+				</div>
+			</div>
+			<div class="section" id="section5">
+				<div class="intro">
+					<div class="inner-box4 clr">
+						<div class="box-w">
+							<div class="clr">
+								<div class="left">
+									<ul id="video-list">
+										<li><a href="javascript:;" data-href="johndyer-mediaelement-ceeb1a7/media/echo-hereweare.mp4">
+											<div class="left"><span class="num">1</span></div>
+											<div class="media">
+												<p><span class="right">＋</span>《爱在心口》微电影</p>
+												<p class="date">Febbruary,07,2015</p>
+											</div></a>
+										</li>
+										<li><a href="javascript:;" data-href="sss"><div class="left"><span class="num">2</span></div>
+											<div class="media">
+												<p><span class="right">＋</span>诗意蔓延发布会现场</p>
+												<p class="date">Febbruary,07,2015</p>
+											</div></a>
+										</li>
+										<li class="active"><a href="">
+											<div class="left"><span class="num">3/12</span></div>
+											<div class="media">
+												<p><span class="right">＋</span>巴厘岛异国风情</p>
+												<p class="date">Febbruary,07,2015</p>
+											</div></a>
+										</li>
+										<li><a href="">
+											<div class="left"><span class="num">4</span></div>
+											<div class="media">
+												<p><span class="right">＋</span>米兰尊荣绚丽发布</p>
+												<p class="date">Febbruary,07,2015</p>
+											</div></a>
+										</li>
+										<li><a href="">
+											<div class="left"><span class="num">5</span></div>
+											<div class="media">
+												<p><span class="right">＋</span>诗意蔓延发布会现场</p>
+												<p class="date">Febbruary,07,2015</p>
+											</div></a>
+										</li>
+										<li><a href="">
+											<div class="left"><span class="num">6</span></div>
+											<div class="media">
+												<p><span class="right">＋</span>巴厘岛异国风情</p>
+												<p class="date">Febbruary,07,2015</p>
+											</div></a>
+										</li>
+									</ul>
+								</div>
+								<div class="middle left">
+									<video width="845" height="465" poster="poster.jpg" controls="controls" preload="none">
+									    <source type="video/mp4" src="mediaelement/media/echo-hereweare.mp4" />
+									    <object width="845" height="465" type="application/x-shockwave-flash" data="mediaelement/build/flashmediaelement.swf">
+									        <param name="movie" value="mediaelement/build/flashmediaelement.swf" />
+									        <param name="flashvars" value="controls=true&file=myvideo.mp4" />
+									        <img src="images/video-sum.jpg" width="845" height="465" title="" />
+									    </object>
+									</video>
+								</div>
+								<div class="left">
+									<ul>
+										<li><a href="">
+											<div class="left"><span class="num">7</span></div>
+											<div class="media">
+												<p><span class="right">＋</span>《爱在心口》微电影</p>
+												<p class="date">Febbruary,07,2015</p>
+											</div></a></li>
+										<li><a href=""><div class="left"><span class="num">8</span></div>
+											<div class="media">
+												<p><span class="right">＋</span>诗意蔓延发布会现场</p>
+												<p class="date">Febbruary,07,2015</p>
+											</div></a></li>
+										<li><a href="">
+											<div class="left"><span class="num">9</span></div>
+											<div class="media">
+												<p><span class="right">＋</span>巴厘岛异国风情</p>
+												<p class="date">Febbruary,07,2015</p>
+											</div></a></li>
+										<li><a href="">
+											<div class="left"><span class="num">10</span></div>
+											<div class="media">
+												<p><span class="right">＋</span>米兰尊荣绚丽发布</p>
+												<p class="date">Febbruary,07,2015</p>
+											</div></a></li>
+										<li><a href="">
+											<div class="left"><span class="num">11</span></div>
+											<div class="media">
+												<p><span class="right">＋</span>诗意蔓延发布会现场</p>
+												<p class="date">Febbruary,07,2015</p>
+											</div></a></li>
+										<li><a href="">
+											<div class="left"><span class="num">12</span></div>
+											<div class="media">
+												<p><span class="right">＋</span>巴厘岛异国风情</p>
+												<p class="date">Febbruary,07,2015</p>
+											</div></a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="video-link">
+								<a href=""><img src="images/video1.jpg" alt=""></a>
+								<a href=""><img src="images/video2.jpg" alt=""></a>
+								<a href=""><img src="images/video3.jpg" alt=""></a>
+								<a href=""><img src="images/video4.jpg" alt=""></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="section" id="section6">
+				<div class="intro">
+					<div class="inner-box5">
+						<div class="box-w">
+							<ul class="media-list clr">
+								<li class="media-item" style="position:relative;">
+									<div class="btn-box" style="position:absolute;left:50%;margin-left:-80px;top:35%;"><a href="" class="btn btn-org">GET THE LOOK</a></div>
+									<img src="images/page6-0001.jpg" alt="">
+									<h4>新娘如何拍好看的婚纱照</h4>
+									<p>最初的普罗旺斯比起阿尔卑斯山，难道比利大师傅点点滴滴</p>
+									<hr>
+									<div class="media-action clr">
+										<div class="left">
+											<img src="images/date02.jpg" alt=""><span class="date">Febbruary,07,2015</span>
+										</div>
+										<div class="right">
+											<span class="peo"><img src="images/peo.jpg" alt=""><span class="text">2350</span></span>
+											<a href=""><img src="images/dianzan.jpg" alt=""></a>
+											<a href=""><img src="images/zhuanfa.jpg" alt=""></a>
+										</div>
+									</div>
+								</li>
+								<li class="media-item">
+									<img src="images/page6-002.jpg" alt="">
+									<h4>新娘如何拍好看的婚纱照</h4>
+									<p>最初的普罗旺斯比起阿尔卑斯山，难道比利大师傅点点滴滴</p>
+									<hr>
+									<div class="media-action clr">
+										<div class="left">
+											<img src="images/date02.jpg" alt=""><span class="date">Febbruary,07,2015</span>
+										</div>
+										<div class="right">
+											<span class="peo"><img src="images/peo.jpg" alt=""><span class="text">2350</span></span>
+											<a href=""><img src="images/dianzan.jpg" alt=""></a>
+											<a href=""><img src="images/zhuanfa.jpg" alt=""></a>
+										</div>
+									</div>
+								</li>
+								<li class="media-item">
+									<img src="images/page6-003.jpg" alt="">
+									<h4>新娘如何拍好看的婚纱照</h4>
+									<p>最初的普罗旺斯比起阿尔卑斯山，难道比利大师傅点点滴滴</p>
+									<hr>
+									<div class="media-action clr">
+										<div class="left">
+											<img src="images/date02.jpg" alt=""><span class="date">Febbruary,07,2015</span>
+										</div>
+										<div class="right">
+											<span class="peo"><img src="images/peo.jpg" alt=""><span class="text">2350</span></span>
+											<a href=""><img src="images/dianzan.jpg" alt=""></a>
+											<a href=""><img src="images/zhuanfa.jpg" alt=""></a>
+										</div>
+									</div>
+								</li>
+								<li class="media-item">
+									<img src="images/page6-004.jpg" alt="">
+									<h4>新娘如何拍好看的婚纱照</h4>
+									<p>最初的普罗旺斯比起阿尔卑斯山，难道比利大师傅点点滴滴</p>
+									<hr>
+									<div class="media-action clr">
+										<div class="left">
+											<img src="images/date02.jpg" alt=""><span class="date">Febbruary,07,2015</span>
+										</div>
+										<div class="right">
+											<span class="peo"><img src="images/peo.jpg" alt=""><span class="text">2350</span></span>
+											<a href=""><img src="images/dianzan.jpg" alt=""></a>
+											<a href=""><img src="images/zhuanfa.jpg" alt=""></a>
+										</div>
+									</div>
+								</li>
+								<li class="media-item">
+									<img src="images/page6-005.jpg" alt="">
+									<h4>新娘如何拍好看的婚纱照</h4>
+									<p>最初的普罗旺斯比起阿尔卑斯山，难道比利大师傅点点滴滴</p>
+									<hr>
+									<div class="media-action clr">
+										<div class="left">
+											<img src="images/date02.jpg" alt=""><span class="date">Febbruary,07,2015</span>
+										</div>
+										<div class="right">
+											<span class="peo"><img src="images/peo.jpg" alt=""><span class="text">2350</span></span>
+											<a href=""><img src="images/dianzan.jpg" alt=""></a>
+											<a href=""><img src="images/zhuanfa.jpg" alt=""></a>
+										</div>
+									</div>
+								</li>
+								<li class="media-item">
+									<img src="images/page6-006.jpg" alt="">
+									<h4>新娘如何拍好看的婚纱照</h4>
+									<p>最初的普罗旺斯比起阿尔卑斯山，难道比利大师傅点点滴滴</p>
+									<hr>
+									<div class="media-action clr">
+										<div class="left">
+											<img src="images/date02.jpg" alt=""><span class="date">Febbruary,07,2015</span>
+										</div>
+										<div class="right">
+											<span class="peo"><img src="images/peo.jpg" alt=""><span class="text">2350</span></span>
+											<a href=""><img src="images/dianzan.jpg" alt=""></a>
+											<a href=""><img src="images/zhuanfa.jpg" alt=""></a>
+										</div>
+									</div>
+								</li>
+								<li class="media-item">
+									<img src="images/page6-007.jpg" alt="">
+									<h4>新娘如何拍好看的婚纱照</h4>
+									<p>最初的普罗旺斯比起阿尔卑斯山，难道比利大师傅点点滴滴</p>
+									<hr>
+									<div class="media-action clr">
+										<div class="left">
+											<img src="images/date02.jpg" alt=""><span class="date">Febbruary,07,2015</span>
+										</div>
+										<div class="right">
+											<span class="peo"><img src="images/peo.jpg" alt=""><span class="text">2350</span></span>
+											<a href=""><img src="images/dianzan.jpg" alt=""></a>
+											<a href=""><img src="images/zhuanfa.jpg" alt=""></a>
+										</div>
+									</div>
+								</li>
+								<li class="media-item">
+									<img src="images/page6-008.jpg" alt="">
+									<h4>新娘如何拍好看的婚纱照</h4>
+									<p>最初的普罗旺斯比起阿尔卑斯山，难道比利大师傅点点滴滴</p>
+									<hr>
+									<div class="media-action clr">
+										<div class="left">
+											<img src="images/date02.jpg" alt=""><span class="date">Febbruary,07,2015</span>
+										</div>
+										<div class="right">
+											<span class="peo"><img src="images/peo.jpg" alt=""><span class="text">2350</span></span>
+											<a href=""><img src="images/dianzan.jpg" alt=""></a>
+											<a href=""><img src="images/zhuanfa.jpg" alt=""></a>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="section" id="section7">
+				<div class="intro">
+					<div class="inner-box6">
+						<div class="box-w">
+							<div class="slider">
+								<div class="flexslider">
+					  			  <ul class="slides">
+					  			  	<li data-thumb="images/page7-001.jpg">
+				 	    	    		<img src="images/page7-001.jpg" alt="">
+				  	 	    		</li>
+				  	 	    		<li data-thumb="images/page3-002.jpg">
+				  	 	    	   		<img src="images/page3-002.jpg" />
+				  	 	    		</li>
+				  	 	    		<li data-thumb="images/page7-001.jpg">
+				 	    	    		<img src="images/page7-001.jpg" alt="">
+				  	 	    		</li>
+				  	 	    		<li data-thumb="images/page3-002.jpg">
+				  	 	    	   		<img src="images/page3-002.jpg" />
+				  	 	    		</li>
+					  			  </ul>
+					  			</div>
+			  				</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="section" id="section8">
+				<div class="intro">
+					<div class="inner-box8">
+						<div class="box-w">
+							<img src="images/page8-001.jpg" alt="" style="padding:40px 0;">
+							<img src="images/page8-002.jpg" alt="" style="padding-bottom:30px;">
+							<div class="link-list-box clr">
+								<ul class="link-list">
+									<h3 class="title fir">HOME</h3>
+								</ul>
+								<ul class="link-list">
+									<h3 class="title">WHO'S MILAN</h3>
+									<li><a href="">ABOUT<span class="text">品牌介绍</span></a></li>
+									<li><img src="images/look.jpg" alt="" class="right"><a href="">MOUTH<span class="text">品牌口碑</span></a></li>
+									<li><a href="">CONTACT<span class="text">友情互动</span></a></li>
+									<li><a href="">JION US<span class="text">加入我们</span></a></li>
+								</ul>
+								<ul class="link-list">
+									<h3 class="title">BRAND</h3>
+									<li><a href="">MILAN<span class="text">米兰尊荣服务中心</span></a></li>
+									<li><a href="">BEAUTY EYE<span class="text">每亩造型定制馆</span></a></li>
+									<li><a href="">TIME<span class="text">米兰动态影像</span></a></li>
+									<li><a href="">COULD<span class="text">云端婚礼跟拍</span></a></li>
+								</ul>
+								<ul class="link-list">
+									<h3 class="title">WORKS</h3>
+									<li><a href="">CITY JOIN<span class="text">全国城市样片</span></a></li>
+									<li><img src="images/look.jpg" alt="" class="right"><a href="">REAVEL<span class="text">全球旅行计划</span></a></li>
+									<li><a href="">BASE<span class="text">独家影城景区</span></a></li>
+									<li><img src="images/look.jpg" alt="" class="right"><a href="">GUEST<span class="text">客照大赏</span></a></li>
+								</ul>
+								<ul class="link-list">
+									<h3 class="title">NEWS</h3>
+									<li><img src="images/look.jpg" alt="" class="right"><a href="">NEWS<span class="text">最新活动</span></a></li>
+									<li><a href="">FILML<span class="text">视频快讯</span></a></li>
+									<li><a href="">IINFO<span class="text">新闻公告</span></a></li>
+									<li><a href="">TIPS<span class="text">服务贴士</span></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="section" id="section9">
+				<div class="intro">
+					<div class="inner-box9">
+						<div class="box-w" style="position:relative;">
+							<div class="contact-box">
+								<ul style="margin-top:120px;">
+									<li class="fir"><h1 style="font-size:44px;">CONTACT</h1></li>
+									<li><img src="images/phone9.jpg" alt="">客户咨询  0510-6866 1999</li>
+									<li class="mid"><img src="images/hongqi.jpg" alt="">地址：江苏省宜兴市宣城街道解放东路9号宜兴米兰尊荣婚纱摄影</li>
+									<li><img src="images/clock.jpg" alt="">AM08：30-PM08：30</li>
+									<li class="last" style="font-size:40px;"><img src="images/peo9.jpg" alt="">1,200,045</li>
+								</ul>
+							</div>
+							<div class="clr">
+								<div class="colum">
+								<img src="images/star9.jpg" alt="">
+								<a href="" class="text">点击这里联系客服实时了解米兰尊荣拍摄档期</a>
+								<p href="" class="text-alert">请在婚期确认前3-6个月进行预订 </p>
+								</div>
+								<div class="colum">
+									<img src="images/star9.jpg" alt="">
+									<a href="" class="text">米兰尊荣选择那你最近的服务中心</a>
+									<p><a href="" class="text-alert">点击查看地址</a></p>
+								</div>
+								<div class="colum">
+									<img src="images/star9.jpg" alt="">
+									<a href="" class="text">米兰尊荣了解更多拍摄须知</a>
+									<p><a href="" class="text-alert">点击这里查看</a></p>
+								</div>
+							</div>
+							<div class="img-box9"><img src="images/page9.png" alt=""></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="pup-box1" style="display:none;">
+		<div style="position:relative;">
+			<img src="images/pup-img1.jpg" alt="">
+			<a href="javascript:;" id="close-tuijian">×</a>
+		</div>
+	</div>
+	<div class="pup-box2" style="display:none;">
+		<div class="dialog-box">
+			<div class="dialog-title">
+				<a href="" class="right" id="close-box2">×</a>
+				<p style="font-size:18px;">CUSTOMER ON LINE<span class="text-org">客户在线报名</span></p>
+			</div>
+			<div class="dialog-content">
+				<div class="input-box">
+					<div class="inline"><label for="">姓名</label><input type="text" name="" id=""></div>
+					<div class="inline"><label for="">电话</label><input type="text" name="" id=""></div>
+					<div class="inline"><label for="">QQ</label><input type="text" name="" id=""></div>
+				</div>
+				<div class="textarea-box"><textarea name="" id="" cols="20" rows="10" placeholder="请输入你的订单要求，我们的客服人员15分钟内与您电话联系，确定订单……"></textarea></div>
+			</div>
+			<div class="dialog-footer clr">
+				<a href="" class="right btn btn-org">发送请求</a>
+				<p>如果您有问题，请致电我们0510-6866-1999，我们将竭力为您解答！</p>
+			</div>
+		</div>
+	</div>
+	<div class="cont-box">
+		<ul class="cont-li">
+			<li><a href="" class="icon-link icon-qq"></a></li>
+			<li><a href="" class="icon-link icon-weixin"></a></li>
+			<li><a href="" class="icon-link icon-weibo"></a></li>
+			<li><a href="" class="icon-link icon-ask"></a></li>
+			<li><a href="" class="icon-link icon-tphone"></a></li>
+		</ul>
+	</div>
+	<div id="footer">
+		<div class="footer-inner box-w">
+			<ul class="clr">
+				<li><a href=""><img src="images/phone.jpg" alt=""></a></li>
+				<li><a href=""><span class="icon-ft icon-fangkuai"></span><span class="text">查看更多精彩客片</span></a></li>
+				<li><a href=""><span class="icon-ft icon-qiang"></span><span class="text">米粉点赞</span></a></li>
+				<li><a href=""><span class="icon-ft icon-youhui"></span><span class="text">最新优惠活动</span></a></li>
+				<li class="active"><a href=""><span class="icon-ft icon-miyue"></span><span class="text">蜜月旅拍专线</span></a></li>
+				<li><a href=""><span class="icon-ft icon-xin"></span><span class="text">热门外景推荐</span></a></li>
+				<li id="tuijian"><a href="javascript:;"><span class="icon-ft icon-tuijian"></span><span class="text">店长推荐套系</span></a></li>
+				<li id="baoming"><a href="javascript:;"><span class="icon-ft icon-baoming"></span><span class="text">点击报名</span></a></li>
+			</ul>
+		</div>
+		<div class="bg-f"></div>
+	</div>
+</body>
+</html>
