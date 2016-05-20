@@ -1,0 +1,173 @@
+/*reset*/
+*{margin:0;padding:0;}
+body{font-size:14px;font-family: "微软雅黑";background: #fafafa;}
+li{list-style:none;}
+img{border:none;}
+a{color:#333;text-decoration:none;}
+a:hover{color:#f56400;transition:color 0.2s ease-in;}
+.clearfix{*zoom:1;}
+.clearfix:after{content:"";display: block;height: 0;visibility: hidden;clear: both;}
+.pull-left{float:left;}
+.pull-right{float:right;}
+.ul-inline li{float:left;}
+.imargin{margin:0 5px;}
+.text-error{color:#f00;vertical-align: top;}
+.btn{
+	display: inline-block;
+	padding: 6px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
+}
+.btn-primary{
+	color: #fff;
+	background-color: #337ab7;
+	border-color: #2e6da4;
+}
+.btn-primary:hover{
+	background-color: #286090;
+	border-color: #204d74;
+}
+
+.container{min-width: 980px;}
+.common-box{width:980px;margin:0 auto;}
+.header{padding-top:10px;}  
+.nav > li{float:left; display: inline;min-width:105px; padding-top:10px;font-size: 16px;line-height: 58px;text-align: center;}
+.nav > li:hover{border-bottom: 2px solid #f56400;}
+.nav > .active{border-bottom:2px solid #f56400;}
+.contact-us{margin-left:15px;padding-top:15px;padding-left:35px;background: url(../images/contact.png) no-repeat left 25px;}
+.contact-us .hotline{font-size:12px;text-align: right;}
+.contact-us .phone{font-size:18px;font-weight: bold; color:#f56400;}
+
+.dropdown{position: relative;}
+.dropdown-list{z-index: 5; position: absolute;top:60px;left:0;padding: 5px 0; border:1px solid #ddd \9;background-color:#fff; box-shadow: 0 0 5px rgba(0,0,0,.3);}
+.dropdown-list > li{line-height: 35px;}
+.dropdown-list > li > a{display:block;min-width:80px;padding:0 10px;}
+.dropdown-list > li > a:hover{background-color:#fafafa;color:#333;}
+
+.banner{height: 490px;overflow: hidden;zoom: 1;}
+.banner .item1{display:block;height:490px;width:100%; background: url(../images/banner01.jpg) no-repeat center;}
+.banner .item2{display:block;height:490px;widht:100%;background: url(../images/banner02.jpg) no-repeat center;}
+.banner .center-box{padding-top: 150px;padding-left: 55px;}
+.banner .img-box{padding-top:100px;}
+.banner  h1{padding-left:20px;font-size:36px;font-weight: normal;color:#f56400;}
+.banner .item2 h1{padding-top: 35px; font-size: 32px;color:#fff;letter-spacing: 5px;}
+.banner .item2 .space{padding-top: 10px; padding-left:80px;}
+.class-list{margin:40px 0;}
+.class-list li{margin:0 53px;text-align:center;}
+.class-list img{opacity: .9;}
+.class-list li p{padding-top:10px;font-size:20px;}
+.class-list li a:hover img{opacity: 1;transition:opacity 0.2s ease-in;}
+.footer{padding:32px 0;background-color: #f6f6f5; text-align: center;}
+.footer ul{text-align: center;}
+.footer li{display: inline-block;*display:inline;}
+.footer ul span{padding:0 5px;}
+.footer p{margin-top:12px;}
+.footer .company{padding:0 10px;}
+.footer .phone{padding:0 20px;}
+
+
+/*books*/
+.books-banner{height:200px;overflow:hidden;zoom:1;margin-bottom:20px;}
+.books-banner img{width:100%;}
+.sidebar{width:160px;border: 1px solid #ddd;}
+.sidebar li:first-child a{border-top:none;}
+.sidebar li a{display: block;padding:15px 20px;border-top:1px solid #ddd;font-size:16px;}
+.sidebar li a span{display: none;}
+.sidebar .active a,
+.sidebar li a:hover{background-color:#f0f0f0;color:#f56400;}
+.sidebar .active a:hover{color:#f56400;}
+.sidebar .active span{display: inline-block;line-height: 22px;}
+.right-box{margin-bottom:25px;padding-left:200px;}
+.common-title{margin-bottom:45px;padding-bottom:8px;font-size: 20px;border-bottom: 2px dotted #ddd;font-weight: normal;}
+.books-box .books-list{margin:0 90px 45px;text-align: center;}
+.books-list li{display:inline-block;margin-left:100px;box-shadow: 6px 8px 5px rgba(0,0,0,.3);border:1px solid #ddd;}
+.books-box li:first-child{margin-left: 0;}
+.books-box li img{max-width:126px;}
+.book-dis{line-height: 30px;}
+.book-dis img{margin-bottom: -5px;padding:5px 15px 0 0;}
+.text-indent{text-indent: 50px;}
+
+/*joinus*/
+.joinus{margin-left: 50px;}
+.control-group {
+	margin-bottom: 30px;
+}
+.control-group .control-label{
+	display:inline-block;
+	float:left;
+	margin-right: 20px;
+	font-size: 16px;
+	font-family: "微软雅黑";
+}
+.control-group textarea{
+	min-width:320px;
+	padding: 6px 12px;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	font-family: "微软雅黑";
+	-webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.control-group input[type="text"]{
+	height: 14px;
+	min-width:320px;
+	padding: 6px 12px;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	-webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.control-group input[type="text"]:focus,
+select:focus,
+.control-group textarea:focus{
+	border-color: #66afe9;
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+}
+.control-group select{
+	min-width: 70px;
+	height: 25px;
+	margin-right: 10px;
+	border-radius: 4px;
+}
+.control-group .control-box{
+	display: inline-block;
+	margin-right: 20px;
+}
+.control-group .control-box lable:hover{
+	cursor:pointer;
+}
+.control-group .control-box label{margin-left: 10px;}
+.joinus .btn{
+	margin-left: 63px;
+}
+
+.cooperation-box{
+	margin-left: 60px;
+}
